@@ -11,16 +11,28 @@ Explanation:
 4 (Additional) NLP_numpy does not have functionality, as it only contains code of a poorly working version of the neural network implemented with only numpy. 
 To run the NN_NLP notebook, a couple of things must be changed. The NN_NLP notebook will stop in a cell which contains the following code:
 
-![image](https://github.com/Sebastiao-C/NLP_Project/assets/80716012/c480fa35-3ada-4e58-9bdd-cfc099f0abba)
-
+```
+train_data = list()
+for k in range(1):
+    with open(f"sentences_for_NN{k}.txt", "r") as fr:
+        a = fr.readline()
+        while a != '':
+            train_data.append(a)
+            a = fr.readline()
+```            
+            
+            
 The contents of the range() function should be changed to range(1), and the name of the file in quotes should be sentences_for_NN{k}.txt, instead of the current content. In the cell that contain the code 
 
-![image](https://github.com/Sebastiao-C/NLP_Project/assets/80716012/e7243bec-a822-4612-bd1d-62bab8514b48)
-
+```
+np_train_data = np_train_data[:-219]
+```    
 the -475 should be changed to -219.
 
 Finally, the cell with the code
 
-![image](https://github.com/Sebastiao-C/NLP_Project/assets/80716012/26a44a82-86f6-4002-a89f-113c90dd11d9)
-
+```
+ws = torch.tensor([weights[x] if x in weights.keys()  else 0 for x in range(max(weights.keys())+1)])
+#map_ = [(key, ind) for ind,key in list(enumerate(weights))]
+```    
 should be deleted
