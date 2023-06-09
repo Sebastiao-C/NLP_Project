@@ -13,8 +13,8 @@ To run the NN_NLP notebook, a couple of things must be changed. The NN_NLP noteb
 
 ```
 train_data = list()
-for k in range(1):
-    with open(f"sentences_for_NN{k}.txt", "r") as fr:
+for k in range(0,8):
+    with open(f"sentences_for_NN-{k}.txt", "r") as fr:
         a = fr.readline()
         while a != '':
             train_data.append(a)
@@ -25,7 +25,7 @@ for k in range(1):
 The contents of the range() function should be changed to range(1), and the name of the file in quotes should be sentences_for_NN{k}.txt, instead of the current content. In the cell that contain the code 
 
 ```
-np_train_data = np_train_data[:-219]
+np_train_data = np_train_data[:-475]
 ```    
 the -475 should be changed to -219.
 
